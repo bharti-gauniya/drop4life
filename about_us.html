@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drop4Life - About Us</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav h2{
+  color:white;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li{
+  cursor:pointer;
+}
+/* BACKGROUND */
+body {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1615461066841-6116e61058f4");
+    background-size: cover;
+    color: white;
+}
+
+/* MAIN SECTION */
+.container {
+    display: flex;
+    padding: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.left {
+    width: 55%;
+    animation: slideIn 1s ease;
+}
+
+.left h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.left h1::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: red;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+.left p {
+    color: #444;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+/* RIGHT SIDE */
+.right {
+    width: 40%;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.right img {
+    width: 260px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    transition: 0.4s;
+}
+
+.right img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* CARD EFFECT */
+.info-box {
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* FOOTER */
+.footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+ nav ul li a {
+  color: white;   /* dark red */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size:22px;
+}
+.close{
+  float:right;
+  cursor:pointer;
+}
+nav ul li a {
+  position: relative;
+}
+nav ul li a:hover {
+  color: #ff1a1a;   /* brighter red on hover */
+  border-bottom: 2px solid #ff1a1a;
+  padding-bottom: 3px;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ff1a1a;
+  transition: 0.3s;
+}
+.login-btn{
+  background:none;
+  font-size:22px;
+}
+
+.signup-btn{
+  background:#ff4d4d;
+  color:white;
+  font-size:22px;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2 font-size:22px;>🩸 Drop4Life</h2>
+   <ul>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="find_donorr.php">Find Donors</a></li>
+  <li><a href="need_blood.html">Need Blood</a></li>
+  <li><a href="why_donate.html">Why Donate Blood</a></li>
+  <li><a href="about_us.html">About Us</a></li>
+</ul>
+</nav>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h1>About Us</h1>
+
+        <p>
+            Drop4Life is an innovative platform designed to connect blood donors 
+            with those in urgent need. Our goal is to make blood donation faster, 
+            easier, and more accessible to everyone.
+        </p>
+
+        <div class="info-box">
+            <p>
+                We manage donor information, track availability, and ensure 
+                quick communication during emergencies. Every second matters, 
+                and every drop of blood can save a life.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <p>
+                Join Drop4Life and become a hero. Your small contribution 
+                can make a big difference in someone’s life.
+            </p>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966487.png">
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    COPYRIGHT © 2026 Drop4Life | ALL RIGHTS RESERVED
+</div>
+
+</body>
+</html>

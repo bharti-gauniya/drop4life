@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Need Blood - Drop4Life</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav h2{
+  color:white;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li{
+  cursor:pointer;
+}
+
+body {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1615461066841-6116e61058f4");
+    background-size: cover;
+    color: white;
+}
+
+/* CONTAINER */
+.container {
+    width: 600px;
+    margin: 80px auto;
+    padding: 50px;
+    border-radius: 15px;
+    background: white;
+}
+
+h2 {
+    text-align: center;
+    color: #ff4d4d;
+    margin-bottom: 15px;
+}
+
+/* INPUTS */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+label {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
+    display: block;
+}
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff1a1a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+nav ul li a {
+  color: white;   /* dark red */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size:22px;
+}
+.close{
+  float:right;
+  cursor:pointer;
+}
+nav ul li a {
+  position: relative;
+}
+nav ul li a:hover {
+  color: #ff1a1a;   /* brighter red on hover */
+  border-bottom: 2px solid #ff1a1a;
+  padding-bottom: 3px;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ff1a1a;
+  transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+</style>
+
+</head>
+
+<body>
+<nav>
+  <h2 font-size:22px;>🩸 Drop4Life</h2>
+   <ul>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="find_donorr.php">Find Donors</a></li>
+  <li><a href="need_blood.html">Need Blood</a></li>
+  <li><a href="why_donate.html">Why Donate Blood</a></li>
+  <li><a href="about_us.html">About Us</a></li>
+</ul>
+</nav>
+<div class="container">
+    <h2>Request Blood</h2>
+
+```
+<form action="need_blood.php" method="POST" onsubmit="return validateForm()">
+
+    <input type="text" id="name" name="name" placeholder="Recipient Name" required>
+
+    <select id="blood" name="blood" required>
+        <option>Select Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+
+    <input type="number" id="units" name="units" placeholder="Units Required" min="1" 
+       oninput="validity.valid||(value='');" required>
+
+    <input type="text" id="phone" name="phone" placeholder="Contact Number" maxlength="10" pattern="[6-9][0-9]{9}" 
+       title="Invalid Phone number" required>
+    <input type="email" id="email" name="email" placeholder="Email Address" required>
+    <label for="todaysDate">Request Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <!-- REASON DROPDOWN -->
+    <select id="reason" name="reason" onchange="showOther()">
+        <option>Select Reason</option>
+        <option>Accident</option>
+        <option>Surgery</option>
+        <option>Emergency</option>
+        <option>Other</option>
+    </select>
+
+    <!-- OTHER REASON -->
+    <input type="text" id="otherReason" name="otherReason" placeholder="Enter Reason" style="display:none;">
+
+    <!-- EXTRA FIELDS -->
+    <input type="text" name="hospital" placeholder="Hospital Name">
+    <input type="text" name="city" placeholder="City">
+    <input type="password" name="password"  placeholder="Enter Password" required>
+    <button type="submit">Submit Request</button>
+
+</form>
+```
+
+</div>
+
+<script>
+function showOther() {
+    let reason = document.getElementById("reason").value;
+    let other = document.getElementById("otherReason");
+
+    if(reason === "Other") {
+        other.style.display = "block";
+    } else {
+        other.style.display = "none";
+    }
+}
+
+function validateForm() {
+    let phone = document.getElementById("phone").value;
+
+    let phonePattern = /^[0-9]{10}$/;
+
+    if(!phonePattern.test(phone)) {
+        alert("Enter valid 10-digit phone number!");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>

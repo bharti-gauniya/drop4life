@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Drop4Life</title>
+    <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 1. Fix the Nav to the top of the screen */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above the background */
+    background: rgba(255, 255, 255, 0.1); /* Match your glass effect */
+    backdrop-filter: blur(10px);
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* This ensures the background image never moves or turns white */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1615461066841-6116e61058f4");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+/* 3. Fix the menu links color so they are visible on the dark background */
+nav ul li a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+nav h2{
+  color:white;
+}
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li{
+  cursor:pointer;
+}
+
+.login-btn {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #8B0000;
+  font-weight: 500;
+}
+.close{
+  float:right;
+  cursor:pointer;
+}
+nav ul li a {
+  position: relative;
+}
+nav ul li a:hover {
+  color: #ff1a1a;   /* brighter red on hover */
+  border-bottom: 2px solid #ff1a1a;
+  padding-bottom: 3px;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ff1a1a;
+  transition: 0.3s;
+}
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 150px auto; /* Use margins to push it down from the header and center it */
+    padding: 20px;
+}
+
+.login-card {
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo i {
+    color: #e63946;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    color: #1d3557;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #e63946;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #c1121f;
+}
+
+.footer-links {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 600;
+}
+    </style>
+</head>
+<body>
+    <nav>
+  <h2 font-size:22px; style="color:#e60023;">🩸 Drop4Life</h2>
+  <ul>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="find_donorr.php">Find Donors</a></li>
+  <li><a href="need_blood.html">Need Blood</a></li>
+  <li><a href="why_donate.html">Why Donate Blood</a></li>
+  <li><a href="about_us.html">About Us</a></li>
+</ul>
+  </div>
+</nav>
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Drop4Life</h1>
+            </div>
+            
+            <form action="login_process.php" method="POST" id="loginForm">
+                <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="footer-links">
+                <p>New to Drop4Life? <a href="register.html">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+<script src="login-script.js"></script>
+</body>
+</html>

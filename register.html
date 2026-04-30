@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drop4Life - Donor Registration</title>
+<style>
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav h2{
+  color:white;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li{
+  cursor:pointer;
+}
+body {
+   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1615461066841-6116e61058f4");
+    background-size: cover;
+    color: white;
+}
+/* CONTAINER */
+.container {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+     margin: 120px auto;
+}
+
+/* LEFT SIDE */
+.left {
+    width: 45%;
+    background: linear-gradient(135deg, #8b5e5e, #3a3a3a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.left:hover {
+    transform: scale(1.02);
+}
+
+.left h1 {
+    margin: 20px 0;
+}
+
+.left p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.left button {
+    padding: 12px 30px;
+    border: none;
+    margin: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn {
+    background: #e52525;
+    color: white;
+}
+
+.search-btn:hover {
+    background: #c41c1c;
+}
+
+.view-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.view-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* RIGHT SIDE */
+.right {
+    width: 55%;
+    background: white;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.right h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+label {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
+    display: block;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: red;
+    outline: none;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTON */
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #e52525;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #c41c1c;
+    transform: scale(1.03);
+}
+nav ul li a {
+  color: white;   /* dark red */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size:22px;
+}
+.close{
+  float:right;
+  cursor:pointer;
+}
+nav ul li a {
+  position: relative;
+}
+nav ul li a:hover {
+  color: #ff1a1a;   /* brighter red on hover */
+  border-bottom: 2px solid #ff1a1a;
+  padding-bottom: 3px;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ff1a1a;
+  transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+/* ANIMATION */
+
+</style>
+
+</head>
+
+<body>
+<nav>
+  <h2 font-size:22px;>🩸 Drop4Life</h2>
+  <ul>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="find_donorr.php">Find Donors</a></li>
+  <li><a href="need_blood.html">Need Blood</a></li>
+  <li><a href="why_donate.html">Why Donate Blood</a></li>
+  <li><a href="about_us.html">About Us</a></li>
+</ul>
+</nav>
+<div class="container">
+
+<div class="left">
+    <h1>Join Drop4Life</h1>
+    <p>Every drop counts. Register today to save a life tomorrow.</p>
+
+    <a href="find_donorr.php" style="text-decoration: none;">
+        <button class="search-btn">Search Donors</button>
+    </a>
+
+    <a href="login.html" style="text-decoration: none;">
+        <button class="view-btn">View Requests</button>
+    </a>
+</div>
+    <!-- RIGHT -->
+    <div class="right">
+        <h2>Donor Registration</h2>
+
+        <form action="registration.php" method="POST" onsubmit="return validateForm()" >
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+
+            <div class="row">
+                <select id="gender" name="gender" required>
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+                <input type="number" id="age" name="age" placeholder="Age" min="18" max="65" required>
+            </div>
+
+            <div class="row">
+                <select id="blood" name="blood" required>
+                    <option>Select Blood Group</option>
+                    <option>A+</option><option>A-</option>
+                    <option>B+</option><option>B-</option>
+                    <option>O+</option><option>O-</option>
+                    <option>AB+</option><option>AB-</option>
+                </select>
+
+                <input type="text" id="phone" name="phone" maxlength="10" placeholder="Contact Number" pattern="[6-9][0-9]{9}" 
+       title="Invalid Phone number" required>
+            </div>
+
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <input type="text" id="health" name="health" placeholder="Health Status" required>
+            <label for="lastDate">Last Donation Date</label>
+            <input type="date" id="lastDate" name="lastDate">
+            <small style="color: gray;">(Leave blank if first-time donor)</small>
+            
+
+            <!-- STATE & DISTRICT FROM API -->
+            <div class="row">
+                <select id="state" name="state" required>
+                    <option>Loading states...</option>
+                </select>
+
+                <select id="district" name="district" required>
+                    <option>Select District</option>
+                </select>
+            </div>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit" class="register-btn">Register</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+// LOAD STATES
+fetch("https://countriesnow.space/api/v0.1/countries/states", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        country: "India"
+    })
+})
+.then(res => res.json())
+.then(data => {
+    let stateDropdown = document.getElementById("state");
+    stateDropdown.innerHTML = "<option>Select State</option>";
+
+    data.data.states.forEach(state => {
+        let option = document.createElement("option");
+        option.value = state.name;
+        option.textContent = state.name;
+        stateDropdown.appendChild(option);
+    });
+});
+
+// LOAD DISTRICTS (CITIES)
+document.getElementById("state").addEventListener("change", function() {
+
+    let selectedState = this.value;
+
+    fetch("https://countriesnow.space/api/v0.1/countries/state/cities", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            country: "India",
+            state: selectedState
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        let districtDropdown = document.getElementById("district");
+        districtDropdown.innerHTML = "<option>Select District</option>";
+
+        data.data.forEach(city => {
+            let option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            districtDropdown.appendChild(option);
+        });
+    });
+});
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === '1') {
+        document.getElementById("successMsg").style.display = "block";
+    }
+    
+};
+// REGISTER FUNCTION
+function validateForm() {
+
+    let name = document.getElementById("name").value.trim();
+    let gender = document.getElementById("gender").value;
+    let age = document.getElementById("age").value;
+    let blood = document.getElementById("blood").value;
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let health = document.getElementById("health").value.trim();
+    let state = document.getElementById("state").value;
+    let district = document.getElementById("district").value;
+
+    // 🔴 Check empty fields
+    if(name === "" || gender === "Select Gender" || age === "" ||
+       blood === "Select Blood Group" || phone === "" ||
+       email === "" || health === "" ||
+       state === "Select State" || district === "Select District") {
+
+        alert("⚠ Please fill all required details!");
+        return false;
+    }
+
+    // 🔴 Phone validation (only digits, exactly 10)
+    let phonePattern = /^[0-9]{10}$/;
+
+    if(!phonePattern.test(phone)) {
+        alert("📱 Phone number must be exactly 10 digits!");
+        return false;
+    }
+
+    // 🔴 Age validation
+    if(age < 18 || age > 65) {
+        alert("⚠ Age must be between 18 to 65!");
+        return false;
+    }
+
+    // 🔴 Email validation (basic)
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!emailPattern.test(email)) {
+        alert("📧 Enter a valid email address!");
+        return false;
+    }
+
+    return true; // ✅ allow submission
+}
+
+</script>
+
+</body>
+</html>
